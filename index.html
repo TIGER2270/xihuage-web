@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>惜花阁绿植租赁 - 专业绿植花卉租赁租摆服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #8bc34a;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.8), rgba(45, 90, 39, 0.8)), 
+                        url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #8bc34a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid #8bc34a;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: #8bc34a;
+        }
+        
+        /* 服务区域 */
+        .services {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d5a27;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eaeaea;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+        
+        /* 案例展示 */
+        .cases {
+            padding: 5rem 0;
+            background-color: #f5f5f5;
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .case-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-image {
+            height: 250px;
+            background-color: #f0f0f0;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .case-content {
+            padding: 1.5rem;
+        }
+        
+        /* 关于我们 */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            color: #2d5a27;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        /* 服务流程 */
+        .process {
+            padding: 5rem 0;
+            background-color: #2d5a27;
+            color: white;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #8bc34a;
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 2rem;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: #8bc34a;
+            border-radius: 50%;
+            line-height: 80px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border: 5px solid #2d5a27;
+        }
+        
+        /* 联系方式 */
+        .contact {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            color: #2d5a27;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            color: #2d5a27;
+            font-size: 1.2rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a3a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://s41.ax1x.com/2026/03/31/pe8zMWQ.webp" alt="惜花阁LOGO">
+                    惜花阁绿植租赁
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#cases">案例展示</a></li>
+                        <li><a href="#plants">绿植品种</a></li>
+                        <li><a href="#prices">租赁价格</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#process">服务流程</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>专业绿植租赁，让绿色走进您的生活</h1>
+            <p>惜花阁为您提供一站式绿植租赁服务，涵盖办公室、商场、酒店、医院等各类场所。我们拥有专业的绿植设计团队和养护团队，为您打造舒适、健康的绿色空间。</p>
+            <a href="#contact" class="cta-button">立即咨询</a>
+        </div>
+    </section>
+
+    <!-- 服务项目 -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>我们的服务项目</h2>
+                <p>为您提供全方位的绿植租赁解决方案</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-building service-icon"></i>
+                    <h3>办公室绿植租赁</h3>
+                    <p>为办公空间提供绿植租赁服务，改善空气质量，提升工作效率。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart service-icon"></i>
+                    <h3>商场绿植造景</h3>
+                    <p>为商场、购物中心提供绿植造景，营造舒适购物环境。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hotel service-icon"></i>
+                    <h3>酒店绿植布置</h3>
+                    <p>为酒店、宾馆提供绿植布置服务，提升酒店品质。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hospital service-icon"></i>
+                    <h3>医院绿化养护</h3>
+                    <p>为医院、诊所提供专业绿化养护服务，营造健康环境。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-school service-icon"></i>
+                    <h3>学校绿植租摆</h3>
+                    <p>为学校、幼儿园提供绿植租摆服务，美化校园环境。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-glass-cheers service-icon"></i>
+                    <h3>展会活动布置</h3>
+                    <p>为展会、活动提供绿植布置，打造专业活动现场。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示 -->
+    <section id="cases" class="cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>成功案例</h2>
+                <p>我们为众多客户提供了优质的绿植租赁服务</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image" style="background-image: url('https://s41.ax1x.com/2026/03/31/pe8TfAA.png');"></div>
+                    <div class="case-content">
+                        <h3>南通某科技公司办公室</h3>
+                    <p>为2000平米办公空间提供绿植租赁服务，打造舒适办公环境。</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-image" style="background-image: url('https://s41.ax1x.com/2026/03/31/pe8TI9P.png');"></div>
+                <div class="case-content">
+                    <h3>南通某五星级酒店</h3>
+                    <p>为酒店大堂、客房、餐厅提供绿植布置，提升酒店品质。</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-image" style="background-image: url('https://s41.ax1x.com/2026/03/31/pe8Trp6.png');"></div>
+                <div class="case-content">
+                    <h3>南通某美容会所</h3>
+                    <p>为美容会所提供绿植布置，营造舒适、健康的美容环境。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 绿植品种展示 -->
+<section id="plants" class="cases">
+    <div class="container">
+        <div class="section-title">
+            <h2>绿植品种</h2>
+            <p>我们提供多种优质绿植品种，满足不同场所的需求</p>
+        </div>
+        <div class="case-grid">
+            <div class="case-card">
+                <div class="case-image" style="background-image: url('https://s41.ax1x.com/2026/03/31/pe8z9iD.webp');"></div>
+                <div class="case-content">
+                    <h3>大型绿植</h3>
+                    <p>适合大堂、大厅等大型空间，如发财树、幸福树等。</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-image" style="background-image: url('https://s41.ax1x.com/2026/03/31/pe8zizd.webp');"></div>
+                <div class="case-content">
+                    <h3>中型绿植</h3>
+                    <p>适合办公室、会议室等空间，如绿萝、吊兰等。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 租赁价格 -->
+<section id="prices" class="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>租赁价格</h2>
+            <p>合理的价格体系，满足不同客户的需求</p>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <img src="https://s41.ax1x.com/2026/03/31/pe8oeaR.png" alt="租赁价格表" style="max-width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>关于惜花阁</h2>
+            <p>专业绿植租赁服务提供商</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>我们的使命</h3>
+                <p>惜花阁致力于为客户提供高品质的绿植租赁服务，通过专业的设计和养护，为各类场所打造舒适、健康的绿色空间。</p>
+                <p>我们拥有丰富的行业经验和专业团队，能够根据客户需求提供定制化的绿植租赁解决方案。</p>
+            </div>
+            <div class="about-text">
+                <h3>我们的优势</h3>
+                <ul style="list-style-position: inside; margin-left: 1rem;">
+                    <li>专业绿植设计团队</li>
+                    <li>经验丰富的养护人员</li>
+                    <li>丰富的绿植品种资源</li>
+                    <li>一站式服务流程</li>
+                    <li>完善的售后保障</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 服务流程 -->
+<section id="process" class="process">
+    <div class="container">
+        <div class="section-title">
+            <h2>服务流程</h2>
+            <p>简单高效的服务流程，让您省心省力</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>电话咨询</h3>
+                <p>拨打我们的服务热线，了解您的需求</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>上门勘探</h3>
+                <p>专业设计师上门测量，了解现场情况</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>方案设计</h3>
+                <p>根据需求制定个性化的绿植租赁方案</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>签订合同</h3>
+                <p>确认方案后签订服务合同</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3>实施服务</h3>
+                <p>专业团队上门安装布置，开始服务</p>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <h3>定期养护</h3>
+                <p>定期上门养护，确保绿植健康生长</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系方式 -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>联系我们</h2>
+            <p>欢迎随时联系我们，获取专业的绿植租赁服务</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <span>服务热线：13338826136</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>电子邮箱：158202160@qq.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <span>公司地址：南通市崇川区工农南路150号</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock contact-icon"></i>
+                    <span>服务时间：周一至周日 9:00-18:00</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>服务承诺</h3>
+                <p>我们承诺为客户提供：</p>
+                <ul style="list-style-position: inside; margin-left: 1rem; margin-top: 1rem;">
+                    <li>专业的绿植设计方案</li>
+                    <li>高品质的绿植品种</li>
+                    <li>定期的养护服务</li>
+                    <li>及时的售后响应</li>
+                    <li>合理的价格体系</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i> 惜花阁绿植租赁
+            </div>
+            <p>专业绿植租赁服务，打造舒适绿色空间</p>
+            <div class="copyright">
+                <p>© 2026 惜花阁绿植租赁 版权所有 | 网站域名：xihuage.webn.cc</p>
+                <p>地址：南通市崇川区工农南路150号 | 电话：13338826136</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 平滑滚动
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.backgroundColor = 'rgba(45, 90, 39, 0.95)';
+        } else {
+            header.style.backgroundColor = '#2d5a27';
+        }
+    });
+
+    // 当前年份和图片优化
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearElement = document.querySelector('.copyright');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
+        }
+
+        // 图片懒加载和预加载优化
+        const images = document.querySelectorAll('img, .case-image, .plant-image');
+        
+        // 创建图片预加载函数
+        function preloadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = url;
+            });
+        }
+
+        // 预加载关键图片
+        const criticalImages = [
+            'https://s41.ax1x.com/2026/03/31/pe8oCGV.png',
+            'https://s41.ax1x.com/2026/03/31/pe8TfAA.png',
+            'https://s41.ax1x.com/2026/03/31/pe8oeaR.png'
+        ];
+
+        criticalImages.forEach(url => {
+            preloadImage(url).catch(() => {
+                console.log('图片加载失败:', url);
+            });
+        });
+
+        // 图片加载状态指示器
+        images.forEach(img => {
+            if (img.tagName === 'IMG') {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s';
+                
+                img.onload = function() {
+                    this.style.opacity = '1';
+                };
+                
+                // 如果图片已经缓存，立即显示
+                if (img.complete) {
+                    img.style.opacity = '1';
+                }
+            }
+        });
+
+        // 添加加载提示
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.innerHTML = '图片加载中...';
+        loadingIndicator.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 10px 20px; border-radius: 5px; z-index: 9999;';
+        document.body.appendChild(loadingIndicator);
+
+        // 3秒后隐藏加载提示
+        setTimeout(() => {
+            loadingIndicator.style.display = 'none';
+        }, 3000);
+    });
+</script>
+</body>
+</html>
